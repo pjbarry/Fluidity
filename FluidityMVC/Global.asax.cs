@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using FluidityMVC.Api;
+using ServiceStack.Redis;
 using ServiceStack.WebHost.Endpoints;
 
 namespace FluidityMVC
@@ -35,6 +36,9 @@ namespace FluidityMVC
         public override void Configure(Funq.Container container)
         {
             SetConfig(new EndpointHostConfig {ServiceStackHandlerFactoryPath = "api"});
+            container.Register<IRedisClientsManager>(c => new PooledRedisClientManager());
+            container.Register<IRepository>(c => new Repository(c.Resolve<IRedisClientsManager>()));
+
         }
     }
 
