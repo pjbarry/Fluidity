@@ -11,8 +11,11 @@ namespace FluidityMVC.Api
     {
         long AddUser(string name, int goal);
         IEnumerable<User> GetUsers();
+        User GetUsers(long userId);
+        void UpdateUser(User user);
     }
-    public class Repository: IRepository
+
+    public class Repository : IRepository
     {
         private IRedisClientsManager RedisManager { get; set; }
 
@@ -23,7 +26,7 @@ namespace FluidityMVC.Api
 
         public long AddUser(string name, int goal)
         {
-            using (var  redisClient = RedisManager.GetClient())
+            using (var redisClient = RedisManager.GetClient())
             {
                 var redisUsers = redisClient.As<User>();
                 var user = new User() {Name = name, Goal = goal, Id = redisUsers.GetNextSequence()};
@@ -39,6 +42,24 @@ namespace FluidityMVC.Api
             {
                 var redisUsers = redisClient.As<User>();
                 return redisUsers.GetAll();
+            }
+        }
+
+        public User GetUsers(long userId)
+        {
+            using (var redisClient = RedisManager.GetClient())
+            {
+                var redisUsers = redisClient.As<User>();
+                return redisUsers.GetById(userId);
+            }
+        }
+
+        public void UpdateUser(User user)
+        {
+            using (var redisClient = RedisManager.GetClient())
+            {
+                var redisUsers = redisClient.As<User>();
+                redisUsers.Store(user);
             }
         }
     }
