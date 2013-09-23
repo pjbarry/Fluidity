@@ -35,7 +35,7 @@ namespace FluidityMVC.Api
         public int NewTotal { get; set; }
     }
 
-    [Route("/user/{userid}", "POST")]
+    [Route("/users/{userid}", "POST")]
     public class AddFluid
     {
         public long UserId { get; set; }
