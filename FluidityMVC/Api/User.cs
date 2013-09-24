@@ -11,6 +11,7 @@ namespace FluidityMVC.Api
         public int Goal { get; set; }
         public int Total { get; set; }
         public long Id { get ; set ; }
+        public String Hashword { get; set; }
         
     }
 }

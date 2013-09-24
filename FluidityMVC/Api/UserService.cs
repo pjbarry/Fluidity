@@ -45,7 +45,6 @@ namespace FluidityMVC.Api
     public class UsersResponse
     {
         public IEnumerable<User> Users { get; set; }
-  
     }
 
     [Route( "/users", "GET")]
