@@ -5,13 +5,14 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ServiceStack.ServiceClient.Web;
 
 namespace Android
 {
-	[Activity (Label = "Test Android", MainLauncher = true)]
+	[Activity (Label = "Fluidity", MainLauncher = true)]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+		private JsonServiceClient client;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -19,14 +20,11 @@ namespace Android
 
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
-
-			// Get our button from the layout resource,
-			// and attach an event to it
-			Button button = FindViewById<Button> (Resource.Id.myButton);
-			
-			button.Click += delegate {
-				button.Text = string.Format ("{0} clicks!", count++);
-			};
+			Console.WriteLine("contacting server");
+			client = new JsonServiceClient ("http://192.168.1.123:46362/api");
+			var response = client.Get<string> ("users");
+			Console.WriteLine(response);
+			Console.WriteLine ("json data received");
 		}
 	}
 }

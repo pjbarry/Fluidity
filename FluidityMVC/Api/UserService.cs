@@ -30,38 +30,5 @@ namespace FluidityMVC.Api
         }
     }
 
-    public class AddFluidResponse
-    {
-        public int NewTotal { get; set; }
-    }
-
-    [Route("/users/{userid}", "POST")]
-    public class AddFluid
-    {
-        public long UserId { get; set; }
-        public int Amount { get; set; }
-    }
-
-    public class UsersResponse
-    {
-        public IEnumerable<User> Users { get; set; }
-    }
-
-    [Route( "/users", "GET")]
-    public class Users
-    {
-    }
-
-    public class AddUserResponse
-    {
-        public long UserId { get; set; }
-    }
-
-    [Route("/users", "POST")]
-    public class AddUser
-    {
-        public string Name { get; set; }
-        public int Goal { get; set; }
-    
-    }
+   
 }
