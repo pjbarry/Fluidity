@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Android\MainActivity.cs">
     <Files>
-      <File FileName="Android\MainActivity.cs" Line="28" Column="1" />
+      <File FileName="Android\MainActivity.cs" Line="37" Column="1" />
+      <File FileName="Android\Resources\Resource.designer.cs" Line="16" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

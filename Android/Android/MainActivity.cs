@@ -26,7 +26,7 @@ namespace Fluidity
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			client = new JsonServiceClient ("http://192.168.1.123:46362/api");
+			client = new JsonServiceClient ("http://192.168.1.123:46362/api/");
 		
 			PopulateSelectUsers ();
 		
