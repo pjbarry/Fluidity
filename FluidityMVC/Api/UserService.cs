@@ -26,6 +26,7 @@ namespace FluidityMVC.Api
             var user = Repository.GetUsers(request.UserId);
             user.Total += request.Amount;
             Repository.UpdateUser(user);
+
             return new AddFluidResponse {NewTotal = user.Total};
         }
     }
